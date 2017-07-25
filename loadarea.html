@@ -1,0 +1,22 @@
+<!--地区控件-->
+<div class="area">
+    <div class="form-group"><select id="province_id" class="form-control" onchange="selectCity(this.value)"><option value="">选择省</option></select></div>
+    <div class="form-group"><select name="city_id" id="city_id" class="form-control" onchange="selectCountry(this.value)"><option value="">选择市</option></select></div>
+    <div class="form-group"><select name="country_id" id="country_id" class="form-control"><option value="">选择区</option></select></div>
+    <div class="form-group">
+    	<button type="button" class="btn btn-primary btn-block" onclick="confirmSelect();">确定</button>
+    </div>
+</div>
+<script type="text/javascript">
+var u1 = url.area;
+u1 = u1.replace('#id',0);
+$.get(u1,'',function(ret){
+    if(ret.Status){
+        var str = '';
+        $.each(ret.Data,function(){
+            str += '<option value="'+this.Id+'">'+this.Name+'</option>';
+        })
+        $("#province_id").html('<option value="">选择省/直辖市</option>'+str);
+    }
+});
+</script>

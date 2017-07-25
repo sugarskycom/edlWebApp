@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>	
+	<title>查订单</title>
+	<link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+	<link href="http://static.edianlian.com/components/dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		body {
+			background-color:#f5f6f7;
+		}
+		.scroll{
+			left: 45%;
+		}
+	</style>
+</head>
+<body>
+	<div class="e-check">
+		<div class="by-waybill"><a href="#" id="tab1">按运单号查询</a></div>
+		<div class="by-order"><a href="#" id="tab2">按订单号查询</a></div>
+	</div>
+	<div class="e-check-pipe">
+		<div class="scroll"></div>
+	</div>	
+	<p class="e-note">仅提供近30天有效订单查询</p>
+	<div id="orderList"></div>
+	<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="http://static.edianlian.com/components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://static.edianlian.com/components/dialog/js/bootstrap-dialog.min.js"></script>
+	<script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+	<script type="text/javascript" src="js/adaptive.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		var url = {tab1:'ereach-waybill.html',tab2:'ereach-order.html'};
+    		var bid = getUrlParam('bid');
+    		var userid = getUrlParam('userid');
+    		var username = getUrlParam('username');
+    		$("#tab1").attr('href',url.tab1+"?bid="+bid+"&userid="+userid+"&username="+username);
+    		$("#tab2").attr('href',url.tab2+"?bid="+bid+"&userid="+userid+"&username="+username);
+    		loadOrder();
+    	})
+    </script>
+</body>
+</html>

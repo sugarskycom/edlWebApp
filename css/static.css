@@ -1,0 +1,11 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+.flowImg{
+    width: 7.5rem;
+}
+.flowImg img{
+    display : block;
+    width: 100%;
+}

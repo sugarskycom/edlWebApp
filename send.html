@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要发</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css">
+    <link href="http://static.edianlian.com/components/dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/send.css">
+    <style>
+    body{
+        background-color: #f5f6f7;
+    }
+    .content {
+        width: 100%;
+        height: .7rem;
+        line-height: .7rem;
+        background-color: #f5f6f7;
+        color: #999999;
+        font-size: .24rem;
+        text-align: center;
+    }
+    .wrapper{max-width: 640px;margin:0 auto;}
+    .address-item-start,
+    .address-item-end,
+    .consigner-item-name,
+    .consigner-item-tel,
+    .goods-item
+    {
+        border-top: 0.01rem solid #e5e5e5;
+        border-bottom: 0.01rem solid #e5e5e5;
+        padding: 10px 0;
+        background-color: #fff;
+    }
+    .address-item-end,.consigner-item-tel{
+        border-top: 0;
+    }
+    .address-item-start span,
+    .address-item-start div,
+    .address-item-end span,
+    .address-item-end div,
+    .consigner-item-name div,
+    .consigner-item-tel div,
+    .goods-item div,
+    .consigner-item-name span,
+    .consigner-item-tel span,
+    .goods-item span
+    {
+        display: block;
+        float: left;
+    }
+    .address-item-start span,
+    .address-item-end span,
+    .consigner-item-name span,
+    .consigner-item-tel span,
+    .goods-item span
+    {
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin:0 15px;
+    }
+    .address-item-start span{
+        background-image: url(img/send/qi.png);
+    }
+    .address-item-end span{
+        background-image: url(img/send/zhong.png);
+    }
+    .consigner-item-name span{
+        background-image: url(img/send/shouhuoren.png);
+    }
+    .consigner-item-tel span{
+        background-image: url(img/send/dianhua.png);
+    }
+    .goods-item span{
+        background-image: url(img/send/huowu.png);
+    }
+    .address-item-start div{
+        margin-top:8px;
+    }
+    .address-item-start select{
+        border:0;
+        -webkit-box-shadow:none;
+        box-shadow: none;
+        padding-left: 0;
+    }
+    .address-item-end div{
+        line-height: 50px;
+        max-width: 560px;
+        overflow:hidden;
+    }
+    div.text-gray{color: #ccc;}
+    .consigner-box,.goods-box{margin-top: 15px;}
+    .consigner-box input{
+        line-height: 50px;
+        background-color: none;
+        margin: 0;padding: 0;
+        border:none;
+        outline:0;
+    }
+    .goods-box{background-color: #fff;}
+    .goods-item{
+        background: url("img/send/dakai.png") no-repeat center right;
+    }
+    .goods-item div{
+        height: 50px;
+        line-height: 50px;
+        overflow:hidden;
+    }
+    .goods-box div:last-of-type{
+        border-top:0;
+    }
+    .btn-primary{
+      color: #fff;
+      background-color: #4b92ff;
+      border-color: none;
+      border:0;
+      outline: 0;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary.focus,
+    .btn-primary:active,
+    .btn-primary.active{
+      color: #fff;
+      background-color: #387de8;
+      border-color:none;
+    }
+    .btn-primary:active,
+    .btn-primary.active,
+    .open > .dropdown-toggle.btn-primary {
+      background-image: none;
+    }
+    #addressPage{
+        border-top: 1px solid #e5e5e5;
+    }
+    .addr-item{
+        padding:10px 0;
+        background-color: #fff;
+        border-top:1px solid #e5e5e5;
+        position: relative;
+    }
+
+    .addr-item label{width:80px; text-align: right;}
+    .addr-item label,.addr-item div{
+        float: left;
+        display: block;
+        font-weight: 500;
+        line-height: 50px;
+    }
+    .addr-item div input{
+        border:0;
+        padding: 0;
+        margin:0;
+        outline: 0;
+        padding-left:10px;
+    }
+    .chevron{
+        position: absolute;
+        color: #ccc;
+        right: 15px;
+        font-size: 18px;
+        top:26px;
+    }
+    .shipping div{
+        margin-top:7px;
+        height: 36px;
+        line-height: 36px;
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        background-size: contain;
+        background-image: url(img/ereach/weixuan.png);
+        padding-left:60px; 
+    }
+    .shipping div:first-of-type{
+        background-position: 30px center;
+        padding-left:75px;
+    }
+    .shipping div.a{
+        background-image: url(img/ereach/xuanzhong.png);
+    }
+    .stock-item{
+        padding: 10px 15px;background-color: #fff;
+        border-top:1px solid #e5e5e5;
+    }
+    #stockPage div.stock-item:last-of-type{
+        border-bottom:1px solid #e5e5e5;
+    }
+    .stock-item span{
+        display: block;
+        float: right;
+    }
+    .stock-item span img{
+        display: block;
+        width: 100%;
+    }
+    .stock-item span:first-of-type,.stock-item span:last-of-type{
+        width: 26px;
+        padding-top:5px;
+    }
+    .stock-item span input{
+        background-color: none;
+        border:0;
+        max-width: 40px;
+        height: 28px; 
+        line-height: 28px;
+        outline: 0;
+        text-align: center;
+    }
+    #stockPage{
+        margin-bottom: 65px;
+        margin-top: 15px;
+    }
+    .foot-num{
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left:0;
+        right: 0;
+        height: 50px;
+        padding: 10px 15px;
+        background-color: #fff;
+        border-top:1px solid #e5e5e5;
+    }
+    .foot-num strong{
+        display: inline-block;
+        padding: 0 5px;
+        color: red;
+    }
+    #orderPage h1{
+        height: 50px; 
+        line-height: 50px;
+        background-color: #fff;
+        border-bottom: 1px solid #e5e5e5;
+        font-size:18px;
+        text-align: center;
+    }
+    #orderPage .confirm-item{
+        padding:10px 0;
+        background-color: #fff;
+        border-bottom: 1px solid #e5e5e5;
+
+    }
+    #orderPage .confirm-item div,#orderPage .confirm-item span{
+        display: block;
+        float:left;
+    }
+    #orderPage .confirm-item span{
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin-left:15px;
+        margin-right:15px;
+    }
+    #orderPage .confirm-item div{
+        line-height: 25px;
+        font-size:14px;
+        height: 50px;
+    }
+    #orderPage .item-1 span{
+        background-image: url(img/send/qi.png);
+    }
+    #orderPage .item-2 span{
+        background-image: url(img/ereach/zhong.png);
+    }
+    #orderPage h2{
+        background-color: #fff;
+        margin-top:15px;
+        padding: 10px 15px;
+        border-bottom: 1px solid #e5e5e5;
+        font-size:14px;
+    }
+    #orderPage h2 strong{
+        display: inline-block;
+        padding:0 10px;
+        color: red;
+    }
+    #orderPage h2 span{
+        display: inline-block;
+        margin-left:15px;
+    }
+    #orderPage .item-g{
+        position: relative;
+        background-color: #fff;
+    }
+    #orderPage .item-g ul{
+        margin:0 0 0 15px;
+    }
+    #orderPage .item-g li{
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    #orderPage .item-g li:last-of-type{
+        border-bottom: 0;
+    }
+    #orderPage .item-g div{
+        margin-left: 0;
+        margin-right:70px;
+        line-height: 25px;
+        height: 50px;
+        overflow: hidden;
+    }
+    #orderPage .item-g span{
+        display: block;
+        position: absolute;
+        top:10px;
+        right: 0;
+        line-height: 50px;
+    }
+
+    #addressPage h2{
+        padding: 0;
+        margin: 0;
+        line-height: 36px;
+        height: 36px;
+        font-size:14px;
+        text-align: right;
+        padding-right: 15px;
+    }
+    #addressPage h2 span{
+        display: inline-block;
+    }
+    #addressPage h2 span i{
+        display: inline-block;
+        margin-right: 5px;
+        background-color: #dcdcdc;
+        border-radius: 50%;
+        font-size: 10px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+    }
+    </style>
+</head>
+<body>
+    <!--默认页面-->
+    <div class="wrapper" id="defaultPage">
+    <form method="post" action="javascript:;" class="form-horizontal">
+        <div class="content">目前只支持易电联租仓商户</div>
+        <div class="address-box">
+            <div class="address-item-start clearfix">
+                <span>&nbsp;</span>
+                <div>
+                    <select class="form-control" id="storage_id">
+                        <option value="10011">易电联A1库(黑庄户乡双树村南甲8号)</option>
+                        <option value="10014">易电联A2库(黑庄户乡定辛庄村)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="address-item-end clearfix">
+                <span>&nbsp;</span>
+                <div class="text-gray" id="showAddress">请填写收货地址</div>
+            </div>
+        </div>
+        <!--收货人信息页面-->
+        <div class="consigner-box">
+            <div class="consigner-item-name clearfix">
+                <span>&nbsp;</span>
+                <div>
+                <input type="text" name="consigner" id="consigner" placeholder="收货人姓名">
+                </div>
+            </div>
+            <div class="consigner-item-tel clearfix">
+                <span>&nbsp;</span>
+                <div>
+                    <input type="text" name="tel" id="tel" placeholder="请输入您的手机号">
+                </div>
+            </div>
+        </div>
+        <!--货物-->
+        <div class="goods-box">
+            <div class="goods-item clearfix" id="showGoods">
+                <span>&nbsp;</span>
+                <div class="text-gray">请选择需要运输的货物</div>
+            </div>
+            <div class="goods-item clearfix" style="background: none;">
+                <div class="row shipping">
+                    <div class="col-sm-6 a">快递（默认发顺丰）</div>
+                    <div class="col-sm-6">客户自提</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:15px;padding: 0 30px;">
+            <input type="hidden" value="" name="h_area">
+            <input type="hidden" value="" name="address">
+            <input type="hidden" value="1" name="typeid">
+            <input type="hidden" value="" name="goodslist">
+            <button type="submit" id="btnSend" class="btn btn-primary btn-block btn-lg">在线下单</button>
+        </div>
+        </form>
+    </div>
+    <!--填写收货地址页面-->
+    <div class="wrapper add-address" id="addressPage" style="display: none;">
+        <h2><span onclick="closeAddress()"><i class="glyphicon glyphicon-remove"></i></span></h2>
+        <div class="addr-item clearfix">
+            <label>收货人：</label>
+            <div><input type="text" id="d_consigner" placeholder="收货人姓名"></div>
+        </div>
+        <div class="addr-item clearfix">
+            <label>手机号：</label>
+            <div><input type="text" id="d_tel" placeholder="联系方式"></div>
+        </div>
+        <div class="addr-item clearfix" onclick="selectAddr()">
+            <label>收货地址：</label>
+            <div class="text-gray" style="padding-left: 10px;" id="showArea">选择省市区</div>
+            <span class="chevron"><i class="glyphicon glyphicon-menu-right"></i></span>
+        </div>
+       <div class="addr-item clearfix" style="border-bottom:1px solid #e5e5e5;">
+            <label>街道地址：</label>
+            <div><input type="text" id="d_address"></div>
+        </div>
+        <div class="form-group" style="margin-top:15px;padding: 0 30px;">
+            <button type="button" id="btnSend" class="btn btn-primary btn-block btn-lg" onclick="saveAddress()">保存</button>
+        </div>
+    </div>
+    <!--库存页面-->
+    <div class="wrapper" id="stockPage" style="display: none;">
+        <div class="stock-list"></div>
+        <div class="foot-num clearfix">
+            <div class="pull-left">已加入<strong id="totalNum">0</strong>件物品</div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-primary" onclick="addOrder()">我要下单</button>
+            </div>
+        </div>
+    </div>
+
+    <!--订单确认页面-->
+    <div class="wrapper" id="orderPage" style="display: none;">
+        <h1>订单确认</h1>
+        <div class="confirm-item item-1 clearfix">
+            <span></span>
+            <div></div>
+        </div>
+        <div class="confirm-item item-2 clearfix">
+            <span></span>
+            <div></div>
+        </div>
+        <h2><img src="img/ereach/huowu.png"><span>一共<strong>0</strong>件物品</span></h2>
+        <div class="confirm-item clearfix item-g">
+            <ul class="list-unstyled">
+            </ul>
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-primary btn-lg btn-block" onclick="saveOrder(this)">确认下单</button>
+        </div>
+    </div>
+    <script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.edianlian.com/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://static.edianlian.com/components/dialog/js/bootstrap-dialog.min.js"></script>
+    <script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="js/adaptive.js"></script>
+    <script src="js/base.js"></script>
+    <script>
+    var bid = getUrlParam('bid');
+    var sid = 0;
+    if(typeof bid == 'undefined' || bid=='') bid=0;
+        $(function(){
+            $(".address-item-end").click(function(){
+                $("#defaultPage").hide();
+                $("#addressPage").show();
+            })
+            $(".shipping div").click(function(){
+                var i = $(this).size();
+                if(i==0)
+                    $("input[name=typeid]").val(1);
+                else
+                    $("input[name=typeid]").val(2);
+                $(this).addClass('a').siblings('div').removeClass('a');
+            })
+            $("#showGoods").click(function(){
+                $("#defaultPage").hide();
+                $("#addressPage").hide();
+                $("#stockPage").show();
+                var obj = $(".stock-list");
+                if(obj.html()==''){
+                    var u = url.vgoods;
+                    var storage_id = $("#storage_id").val();
+                    if(storage_id!=sid) sid = storage_id;
+                    u = u.replace('#bid',bid).replace('#sid',sid);
+                    $.get(u,'',function(ret){
+                        //console.info(ret)
+                        if(ret.Status){
+                            var html = '';
+                            var i = 0;
+                            $.each(ret.Data,function(j){
+                                i = j;
+                                html += '<div class="stock-item"><div class="row"><div class="col-xs-7">'+this.ProductName+'&nbsp;(库存：<font color="red">'+this.Store+'</font>)</div><div class="col-xs-5 clearfix"><span onclick="add('+this.ProductId+',1)"><img src="img/ereach/jia.png"></span><span><input type="number" name="num" value="0" min="0" max="'+this.Store+'" data-pid="'+this.ProductId+'" onchange="checkNum(this)" onkeyup="checkNum(this)" id="p'+this.ProductId+'" data-name="'+this.ProductName+'"></span><span onclick="add('+this.ProductId+',2)"><img src="img/ereach/jian.png"></span></div></div></div>';
+                            });
+                            if(i==0)
+                                obj.html('<div class="alert alert-warning">暂未找到数据</div>');
+                            else
+                                obj.html(html);
+                        }
+                    })
+                }
+            });
+        })
+
+        function selectAddr(){
+            BootstrapDialog.show({
+                type:BootstrapDialog.TYPE_PRIMARY,
+                title:'地区',
+                message:function(){
+                    return $('<div></div>').load('loadarea.html');
+                }
+            })
+        }
+        function addOrder(){
+            var t = parseInt($("#totalNum").text());
+            if(t>0){
+                $("#showGoods div").html('共计货物：'+t+' 件').removeClass('text-gray');
+            }
+            else{
+                $("#showGoods div").html('请选择需要运输的货物').addClass('text-gray');
+            }
+            //统计出库商品
+            var goods = '';
+            var j = $("input[name=num]").size();
+            $.each($("input[name=num]"),function(i){
+                var n = parseInt($(this).val());
+                if(n>0){
+                    if(i<(parseInt(j)-1))
+                        goods += $(this).attr('data-pid')+','+n+','+$(this).attr('data-name')+'|';
+                    else
+                        goods += $(this).attr('data-pid')+','+n+','+$(this).attr('data-name');
+                }
+            });
+            $("input[name=goodslist]").val(goods);
+            $("#defaultPage").show();
+            $("#addressPage").hide();
+            $("#stockPage").hide();          
+        }
+        function totalNum(){
+            var n = 0;
+            $.each($("input[name=num]"),function(){
+                n += parseInt($(this).val());
+            });
+            $("#totalNum").text(n);
+        }
+        function selectCity(pid){
+            var u1 = url.area;
+            u1 = u1.replace('#id',pid);
+            $.get(u1,'',function(ret){
+                if(ret.Status){
+                    var str = '';
+                    $.each(ret.Data,function(){
+                        str += '<option value="'+this.Id+'">'+this.Name+'</option>';
+                    })
+                    $("#city_id").html('<option value="">选择市</option>'+str);
+                    $("#country_id").html('<option value="">选择区</option>');
+                }
+            });
+        }
+        function checkNum(o){
+            var max = parseInt($(o).attr('max'));
+            var v = $(o).val();
+            if(v>max){
+                $(o).val(max);
+            }
+            else if(v<0)
+            {
+                $(o).val(0);
+            }
+            totalNum();
+        }
+        function add(id,f){
+            var max = parseInt($("#p"+id).attr('max'));
+            var v = parseInt($("#p"+id).val());
+            if(f==1){
+                if(v<max){
+                    v++;
+                    $("#p"+id).val(v);
+                }
+            }
+            else{
+                 if(v>0){
+                    v--;
+                    $("#p"+id).val(v);
+                 }
+            }
+            totalNum();
+        }
+        function selectCountry(pid){
+            var u1 = url.area;
+            u1 = u1.replace('#id',pid);
+            $.get(u1,'',function(ret){
+                if(ret.Status){
+                    var str = '';
+                    $.each(ret.Data,function(){
+                        str += '<option value="'+this.Id+'">'+this.Name+'</option>';
+                    })
+                    $("#country_id").html('<option value="">选择区</option>'+str);
+                }
+            });
+        }
+        function confirmSelect(){
+            var area = {};
+            if($("#province_id").val()==''){
+                toastr.error('请选择省');
+                return false;
+            }
+            if($("#city_id").val()==''){
+                toastr.error('请选择市');
+                return false;
+            }
+            if($("#country_id").val()==''){
+                toastr.error('请选择区');
+                return false;
+            }
+            area.ProviceID = $("#province_id").val();
+            area.CityID = $("#city_id").val();
+            area.AreaID = $("#country_id").val();
+            area.Provice = $("#province_id option:selected").text();
+            area.City = $("#city_id option:selected").text();
+            area.Area = $("#country_id option:selected").text();
+            $("#showArea").text(area.Provice+'/'+area.City+"/"+area.Area).removeClass('text-gray');
+            $("input[name=h_area]").val(JSON.stringify(area));
+            closeDialog();
+        }
+        //保存收货地址
+        function saveAddress(){
+            if($.trim($("#d_consigner").val())==''){
+                toastr.error('收货人姓名不能为空');
+                return false;
+            }
+            if($("input[name=h_area]").val()==''){
+                toastr.error('选择发货区域');
+                return false;
+            }
+            if($.trim($("#d_tel").val())==''){
+                toastr.error('手机号不能为空');
+                return false;
+            }
+            else if(!isMobile($.trim($("#d_tel").val()))){
+                toastr.error('手机号无效');
+                return false;
+            }
+            if($.trim($("#d_address").val())==''){
+                toastr.error('街道地址不能为空');
+                return false;
+            }
+            $("#consigner").val($.trim($("#d_consigner").val()));
+            $("#tel").val($.trim($("#d_tel").val()));
+            var area = eval('('+$("input[name=h_area]").val()+')');
+            $("input[name=address]").val($.trim($("#d_address").val()));
+            $("#showAddress").text(area.Provice+area.City+area.Area+$.trim($("#d_address").val())).removeClass('text-gray');
+            $("#defaultPage").show();
+            $("#addressPage").hide();
+
+        }
+
+        /*按钮点击信息验证*/
+        $("#btnSend").click(function () {
+            var h_area = $("input[name=h_area]").val();
+            var address = $("input[name=address]").val();
+            var goodslist = $("input[name=goodslist]").val();
+            var consigner = $.trim($("#consigner").val());
+            var tel = $.trim($("#tel").val());
+            if (h_area == '' || address == '') {
+                toastr.error('收货地址不能为空');
+                return false;
+            }
+            else if(consigner == ''){
+                toastr.error('收货人不能为空');
+                return false;
+            }
+            else if(tel == ''){
+                toastr.error('收货人手机号不能为空');
+                return false;
+            }
+            else if(!isMobile(tel)){
+                toastr.error('收货人手机号无效，请检查');
+                return false;
+
+            }
+            else {
+                $("#defaultPage").hide();
+                $("#addressPage").hide();
+                $("#stockPage").hide();
+                $("#orderPage").show();
+                //仓库地址
+                $(".item-1").find('div').text($("#storage_id option:selected").text());
+                //收货人地址
+                var html = consigner+'/'+tel+'<br>'+$("#showAddress").text()
+                $(".item-2").find('div').html(html);
+                var goods = goodslist.split('|');
+                var h = '';
+                var n = 0;
+                $.each(goods,function(){
+                    var ar = this.split(',')
+                    h += '<li class="clearfix"><div>'+ar[2]+'</div><span><strong>'+ar[1]+'</strong>件</span></li>';
+                    n += parseInt(ar[1]);
+                })
+                $(".item-g ul").html(h);
+                //统计数量
+                $("#orderPage h2 span strong").text(n);
+            }
+        });
+        //保存订单
+        function saveOrder(o){
+            $(o).attr('disabled',true);
+            var h_area = eval('('+$("input[name=h_area]").val()+')');
+            var gs = $("input[name=goodslist]").val();
+            gs = gs.split('|');
+            var products = '';
+            $.each(gs,function(i){
+                var tmp = this.split(',');
+                if(i==(gs.length-1))
+                    products += tmp[0]+','+tmp[1];
+                else
+                    products += tmp[0]+','+tmp[1]+"|";
+            })
+            var obj = {};
+            obj.BusinessID = bid,
+            obj.Name = $.trim($("#consigner").val());
+            obj.Mobile = $.trim($("#tel").val());
+            obj.Address = $("input[name=address]").val();
+            obj.StorageID = $("#storage_id").val();
+            obj.Products = products;
+            obj.TypeID = $("input[name=typeid]").val();
+            obj.ProviceID = h_area.ProviceID;
+            obj.Provice = h_area.Provice;
+            obj.CityID = h_area.CityID;
+            obj.City = h_area.City;
+            obj.AreaID = h_area.AreaID;
+            obj.Area = h_area.Area;
+            //console.info(obj);
+            $.post(url.createorder,obj,function(ret){
+                if(ret.Status){
+                    console.info(ret)
+                    toastr.success('订单号：'+ret.Data.OrderID+' 提交成功！仓库正准备出货！');
+                    setTimeout(function(){
+                        window.location.reload();
+                    },600);
+                }
+                else{
+                    toastr.error('系统错误！提交失败');
+                }
+            })
+        }
+        function closeAddress(){
+            $("#addressPage").hide();
+            $("#defaultPage").show();
+        }
+</script>
+
+</body>
+</html>

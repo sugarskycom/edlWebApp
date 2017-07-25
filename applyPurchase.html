@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>发布采购单</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="message">
+    <div>
+        <label for="product">采购产品：</label>
+        <input type="text" id="product" placeholder="如：采购海尔冰箱100台（必填）">
+    </div>
+    <div>
+        <label for="user">联 系 人 ：</label>
+        <input type="text" id="user" placeholder="请输入联系人姓名（必填）">
+    </div>
+    <div>
+        <label for="pNumber">电 话 号 ：</label>
+        <input type="text" id="pNumber" placeholder="请输入手机号（必填）">
+    </div>
+    <div class="mb17">
+        <label for="remark" style="vertical-align: top;">备&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;：</label>
+        <textarea type="text" id="remark" placeholder="产品型号、品牌、预计价位等"></textarea>
+    </div>
+</div>
+<div class="button">
+    <button class="btn btn-primary" type="submit" onclick="sendPurchase()">发布采购单</button>
+</div>
+<!--申请金融融资 end-->
+
+<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+<script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="js/adaptive.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+</body>
+</html>

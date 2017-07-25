@@ -1,0 +1,151 @@
+html{
+    font-size: 100px;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p,ul,ol,form{
+    margin:0;
+}
+ul,li{
+    list-style: none;
+}
+/*更改插件toastr字体大小*/
+.toast-message{
+    font-size: .5rem;
+}
+
+/*分割线*/
+.spliting{
+    width: 100%;
+    height: .01rem;
+    background-color: #dbdbdb;
+}
+body {
+    background-color: #f5f6f7;
+}
+.content{
+    width: 100%;
+    height: .7rem;
+    line-height: .7rem;
+    background-color: #f5f6f7;
+    color: #999999;
+    font-size: .24rem;
+    text-align: center;
+}
+
+/*主体内容*/
+.message div.place,.message div.custom-infor,.message div.custom-storage {
+    background-color: #fff;
+}
+.content,.message div.starting,.message div.custom-name,.message div.custom-storage {
+    border-top:0.01rem solid #e5e5e5;
+    border-bottom:0.01rem solid #e5e5e5;
+}
+.message div.ending,.message div.custom-pnum {
+ border-bottom:0.01rem solid #e5e5e5; 
+}
+.message div.deliver {
+  border-top:0.01rem solid #e5e5e5;  
+}
+.message div.custom-storage {
+    margin-bottom: 1.7rem;
+}
+.message div.place,.message div.custom-infor {
+    margin-bottom: 0.3rem;
+}
+.message div > input,.message div span {
+    display: inline-block;
+    padding-left: .3rem;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    font-size: 0.28rem;
+    color:#333;
+    border:0;
+    vertical-align: 40%;
+}
+.message div > img {
+    margin-left:0.2rem;
+    margin-top:0.2rem;
+}
+.message div.deliver span {
+    font-size: 0.24rem;
+    color:#999;
+}
+
+/*button*/
+.button {
+    text-align: center;
+}
+.button button{
+    width: 90%;
+    height: .88rem;
+    font-size: .32rem;
+    border-radius: .1rem;
+    border:0;
+    color: #fff;
+    background-color: #4b92ff;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #4b92ff;
+  border-color: 0;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #4b92ff;
+  border-color: 0;
+}
+.circle{
+    width: .36rem;
+    height: .36rem;
+    background: url("../img/send/weixuan.png") no-repeat;
+    background-size: 100% 100%;
+}
+.active{
+    width: .36rem;
+    height: .36rem;
+    background: url("../img/send/xuanzhong.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+/*custom infor*/
+.custom-infor {
+    background-color: #fff;
+    margin-top:0.3rem;
+}
+.custom-infor div {
+    border-bottom: 0.01rem solid #e5e5e5;
+}
+.custom-infor div > label {
+    display: inline-block;
+    font-size:0.28rem;
+    color:#333;
+    vertical-align: 75%;       
+}
+.custom-infor div > input {
+    font-size: 0.28rem;
+    color: #333;
+    width:50%;
+    vertical-align: 40%;
+    border:0;
+}
+::-moz-placeholder { color: #ccc; font-size: 0.3rem}
+::-webkit-input-placeholder { color: #ccc; font-size: 0.3rem}
+:-ms-input-placeholder { color: #ccc; font-size: 0.3rem }
+
+.custom-infor div.address > a {
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 0.7rem;
+    vertical-align: 10%;
+    margin-left: 0.8rem;
+    color:#ccc;
+}
+

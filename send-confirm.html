@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要发--确认下单</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/send.css">
+    <style>
+    .address-infor,.storage-infor {
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        background-color: #fff;
+    }
+        .address-infor > .title,.storage-infor > .title {
+            font-size:0.28rem;
+            color: #666;
+            padding-left:0.3rem;
+            border-bottom:0.01rem solid #e5e5e5;
+        }
+        .address-infor > .title {
+            height: 0.8rem;
+            line-height: 0.8rem;
+        }
+        .storage-infor > .title{
+            /*height: 0.88rem;
+            line-height: 0.88rem;*/
+        }        
+        .starting > img,.ending > img {
+            padding-left: 0.3rem;
+            margin-top:0.2rem;
+            margin-bottom: 0.2rem;  
+            vertical-align: -60%;          
+        }
+        .storage-infor > .title span {
+            display: inline-block;
+            vertical-align: 100%;
+            padding-top:0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left:0.3rem;
+        }
+        .deliver > .deliver-infor,.receiver > .receiver-infor {
+            font-size: 0.3rem;
+            color: #333;
+            margin-bottom: 0.26rem;
+        }
+        .deliver > .deliver-address,.receiver > .receiver-address {
+            font-size: 0.24rem;
+            color: #666;
+        }
+        .deliver,.receiver {
+         display: inline-block;
+         padding-top:0.32rem;
+         padding-bottom: 0.32rem;
+         vertical-align: 10%;
+         padding-left: 0.2rem;
+     }
+     .deliver {
+        border-bottom:0.01rem solid #e5e5e5;
+     }
+     .storage-infor > .title > img {
+        vertical-align: -10%;
+     }
+     .storage-infor .order-list .order-item {
+        margin-left:0.9rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+        border-bottom:0.01rem solid #e5e5e5;
+     }
+     .storage-infor .order-list .order-item:last-child {
+        border-bottom: 0;
+     }
+     .storage-infor .order-list .order-item > .product-model {
+        font-weight: normal;
+        font-size: 0.28rem;
+        color: #333;
+        display: inline-block;
+         vertical-align: 50%;
+
+     }
+     .storage-infor .order-list .order-item > .product-details {
+        font-size: 0.22rem;
+        color: #666;
+        display: inline-block;
+        padding-right:0.2rem;
+        padding-left: 0.2rem;
+     }
+     .storage-infor .order-list .order-item > .item-num {
+        font-size: 0.28rem;
+        color: #4b92ff;
+        display: inline-block;
+        vertical-align: 50%;
+     }
+
+ </style>
+</head>
+<body>
+    <div class="address-infor">
+        <div class="title">订单号： 1234562369123</div>
+        <div class="starting">
+            <img src="img/ereach/qi.png" alt="" />
+            <div class="deliver">
+                <p class="deliver-infor">发货人： 欧阳若若&nbsp;&nbsp;&nbsp;13798561522</p>
+                <p class="deliver-address">北京市朝阳区内环到三环里王府井大街111号</p>
+            </div>
+        </div>
+        <div class="ending">
+            <img src="img/ereach/zhong.png" alt="" />
+            <div class="receiver">
+                <p class="receiver-infor">收货人： 欧阳若若&nbsp;&nbsp;&nbsp;13798561522</p>
+                <p class="receiver-address">北京市朝阳区内环到三环里王府井大街111号</p>
+            </div>
+        </div>
+    </div>
+    <div class="storage-infor">
+        <div class="title"><img src="img/ereach/huowu.png" alt="" /><span>共计 <b class="list-num">10</b> 件货物</span></div>
+        <div class="order-list">
+            <div class="order-item item1">
+                <h1 class="product-model">LCD-48DS72A</h1>
+                <div class="product-details">
+                    <p>夏普（SHARP）液晶平板电视</p>
+                    <p>LCD-48DS72A 48英寸</p>
+                </div>
+                <div class="item-num"> <b class="num">10</b> 件</div>
+            </div>
+            <div class="order-item item2">
+                <h1 class="product-model">LCD-48DS72A</h1>
+                <div class="product-details">
+                    <p>夏普（SHARP）液晶平板电视</p>
+                    <p>LCD-48DS72A 48英寸</p>
+                </div>   
+                <div class="item-num"> <b class="num">10</b> 件</div>             
+            </div>
+        </div>
+    </div>
+
+    <div class="button">
+        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">确认下单</button>
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header" style="background-color: #4b92ff;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                <h4 style="color:#4b92ff;margin-bottom: 0.2rem;">提交成功</h4>  
+                <p style="margin-bottom: 0.2rem;">订单号 ：2335396822233</p>        
+                <p style="color:#999;margin-bottom: 0.4rem;">仓库正准备出货</p> 
+                <button type="button" class="btn btn-primary" style="background-color: #4b92ff;" data-toggle="modal" data-target="#myModal">我知道了</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.edianlian.com/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="js/adaptive.js"></script>
+    <script>
+        /*验证插件初始化*/
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": false,
+            "preventDuplicates": false,
+            "positionClass": "toast-top-full-width",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "2000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        /*按钮点击信息验证*/
+        $(".button").click(function () {
+            var province = $.trim($("#province").val());
+            var city = $.trim($("#city").val());
+            var area = $.trim($("#area").val());
+            var where = $.trim($("#where").val());
+            var username = $.trim($("#user").val());
+            var pNumber = $.trim($("#pNumber").val());
+            /*正则检验手机号*/
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
+        var flag = reg.test(pNumber); //true
+        if (province == '') {
+            toastr.error('请选择省份！');
+            return false;
+        }
+        else if(city == ''){
+            toastr.error('请选择城市！')
+        }
+        else if(area == ''){
+            toastr.error('请选择区域！')
+        }
+        else if(where == ''){
+            toastr.error('请写入具体地址！')
+        }
+        else if (username == '') {
+            toastr.error('请输入联系人!');
+            return false;
+        }else if(username.length < 2){
+            toastr.error('姓名至少两个字！');
+            return false;
+        }
+        else if (pNumber == '') {
+            toastr.error('请输入手机号！');
+            return false;
+        } else if (!flag) {
+            toastr.error('请输入正确的手机号！');
+            return false;
+        } else {
+            /*AJAX提交数据*/
+            window.location.href="myProduct.html";
+            var data = {
+                Address: "province" + "city" + "area" + "where",
+                Name: username,
+                mobile: pNumber
+            };
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.1.143:9001/api/Apply/ApplyPurchase/",
+                dataType: "jsonp",
+                jsonp: 'callback',
+                data: JSON.stringify(data),
+                success: function () {
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

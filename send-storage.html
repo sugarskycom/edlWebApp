@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要发--确认下单</title>
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/send.css">
+    <style>
+        /*商品列表*/
+        .storage-list {
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            background-color: #fff;
+        }
+        .storage-list .storage-item {
+            display: inline-block;
+            padding-left:0.2rem;
+            border-bottom:0.01rem solid #e5e5e5;
+            margin-right: -0.2rem;
+            padding-right: 0.2rem;
+        }
+        .storage-list .storage-item > .product-model {
+            font-weight: normal;
+            font-size: 0.28rem;
+            color: #333;
+            display: inline-block;
+            vertical-align: 80%;
+        }
+        .storage-list .storage-item > .product-details {
+            font-size: 0.22rem;
+            color: #666;
+            display: inline-block;
+            vertical-align: 50%;
+        }
+        .storage-list .storage-item > .item-num {
+            display: inline-block;
+            vertical-align: 15%;
+        }
+        .storage-list .storage-item > .item-num img {
+            width: 0.44rem;
+            height: 0.44rem;
+        }
+        .storage-list .storage-item > .item-num img.add {
+            padding-right:0.01rem;
+        }
+        .storage-list .storage-item > .item-num > .num {
+            font-size: 0.28rem;
+            color: #666;
+            vertical-align: 30%;
+        }
+
+        /*底部*/
+        .storage-confirm > span {
+            font-size: 0.28rem;
+            color: #666;
+            vertical-align: 30%;
+        }
+        .storage-confirm {
+            padding-left:0.2rem;
+            position: fixed;
+            bottom:0;
+            background-color: #fff;
+            width:100%;
+            height: 0.98rem;
+            line-height: 0.98rem;
+        }
+        .storage-confirm > .storage-num > .num {
+            color:#4b92ff;
+            font-size: 0.28rem;
+        }
+        .storage-confirm > .confirm-btn {
+            width: 2.4rem;
+            height: .98rem;
+            line-height: .98rem;
+            background-color: #4b92ff;
+            color: #fff;
+            font-size: .32rem;
+            border:0;
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 商品列表 -->
+    <div class="storage-list">
+        <div class="storage-item item1">
+            <h1 class="product-model">LCD-48DS72A</h1>
+            <div class="product-details">
+                <p>夏普（SHARP）液晶平板电视</p>
+                <p>宽屏LCD-48DS72A 48英寸</p>
+            </div>
+            <div class="item-num">
+                <img class="reduce" src="img/ereach/jian.png" alt="" /><b class="num"> 20 </b><img class="add" src="img/ereach/jia.png" alt="" />
+            </div>
+        </div>
+        <div class="storage-item item2">
+            <h1 class="product-model">LCD-48DS72A</h1>
+            <div class="product-details">
+                <p>夏普（SHARP）液晶平板电视</p>
+                <p>宽屏LCD-48DS72A 48英寸</p>
+            </div>
+            <div class="item-num">
+                <img class="reduce" src="img/ereach/jian.png" alt="" /><b class="num"> 20 </b><img class="add" src="img/ereach/jia.png" alt="" />
+            </div>
+        </div>
+        <div class="storage-item item3">
+            <h1 class="product-model">LCD-48DS72A</h1>
+            <div class="product-details">
+                <p>夏普（SHARP）液晶平板电视</p>
+                <p>宽屏LCD-48DS72A 48英寸</p>
+            </div>
+            <div class="item-num">
+                <img class="reduce" src="img/ereach/jian.png" alt="" /><b class="num"> 20 </b><img class="add" src="img/ereach/jia.png" alt="" />
+            </div>
+        </div>
+        <div class="storage-item item4">
+            <h1 class="product-model">LCD-48DS72A</h1>
+            <div class="product-details">
+                <p>夏普（SHARP）液晶平板电视</p>
+                <p>宽屏LCD-48DS72A 48英寸</p>
+            </div>
+            <div class="item-num">
+                <img class="reduce" src="img/ereach/jian.png" alt="" /><b class="num"> 20 </b><img class="add" src="img/ereach/jia.png" alt="" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部 -->
+    <div class="storage-confirm">
+        <span class="storage-num">已加入 <b class="num">10</b> 件货物</span>
+        <button class="confirm-btn" type="button">我要下单</button>
+    </div>
+    <script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/adaptive.js"></script>
+</body>
+</html>

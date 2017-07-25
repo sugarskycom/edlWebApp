@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要发--收货人信息</title>
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/send.css">
+    <style>
+        .custom-infor div {
+            padding-left: .2rem;
+        }
+        .custom-infor div > input {
+            vertical-align: 75%;
+        }
+    </style>
+</head>
+<body>
+  <div class="custom-infor">
+    <div>
+        <label for="receiver">收 货 人 ：</label>
+        <input type="text" id="user" placeholder="收货人姓名">
+    </div>
+    <div>
+        <label for="pNumber">手 机 号 ：</label>
+        <input type="text" id="pNumber" placeholder="联系方式">
+    </div>
+    <div class="address">
+        <label for="address">收货地址：</label>
+        <input type="text" id="area" placeholder="北京北京市朝阳区">
+        <a href="#">&gt;</a>
+    </div>
+    <div>
+        <label for="details">详细地址：</label>
+        <input type="text" id="where" placeholder="街道详细信息">
+    </div>
+</div>
+
+<div class="button">
+    <button type="button">保存</button>
+</div>
+
+<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+<script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+<script src="js/PCASClass.js"></script>
+<script type="text/javascript" src="js/adaptive.js"></script>
+
+</body>
+</html>

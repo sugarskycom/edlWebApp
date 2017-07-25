@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>	
+	<title>查运单</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		body {
+			background-color:#f5f6f7;
+		}
+	</style>
+</head>
+<body>
+	<div class="e-check">
+		<div class="by-waybill"><a href="#" id="tab1">按运单号查询</a></div>
+		<div class="by-order"><a href="#" id="tab2">按订单号查询</a></div>
+	</div>
+	<div class="e-check-pipe">
+		<div class="scroll"></div>
+	</div>	
+	<div class="check-group">
+		<input class="code" type="text" style="text-align: center;margin-top:0.5rem;margin-bottom:2rem;" id="code" placeholder="请输入运单号" />
+		<button class="btn btn-primary waybill-btn" type="button" onclick="searchTrack()"><span>查看物流</span></button>
+	</div>
+    <div class="show" id="searchResult">
+    </div>
+	<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+    <script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+	<script type="text/javascript" src="js/adaptive.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		var url = {tab1:'ereach-waybill.html',tab2:'ereach-order.html'};
+    		var bid = getUrlParam('bid');
+    		var userid = getUrlParam('userid');
+    		var username = getUrlParam('username');
+    		$("#tab1").attr('href',url.tab1+"?bid="+bid+"&userid="+userid+"&username="+username);
+    		$("#tab2").attr('href',url.tab2+"?bid="+bid+"&userid="+userid+"&username="+username);
+    	})
+    </script>
+</body>
+</html>

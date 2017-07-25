@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要租</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://static.edianlian.com/components/datepicker/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<!--分割线 begin-->
+<div class="split"></div>
+<!--分割线 end-->
+
+<!--申请服务流程 begin-->
+<div class="flow">
+    <div>
+        <span>——</span>
+        <p>仓储租赁流程</p>
+        <span>——</span>
+    </div>
+</div>
+<div class="flowImages">
+    <img src="img/flow/sahgnwuqiatan.png" alt="">
+    <img src="img/flow/hetong.png" alt="">
+    <img src="img/flow/chanpin.png" alt="">
+    <img src="img/flow/lvxing.png" alt="">
+</div>
+<div class="sFlow">
+    <div>
+        <p>商务洽谈</p>
+        <span>——</span>
+        <p>合同签订</p>
+        <span>——</span>
+        <p>产品入库</p>
+        <span>——</span>
+        <p>履行服务</p>
+    </div>
+</div>
+<!--申请服务流程 end-->
+
+<!--分割线 begin-->
+<div class="split"></div>
+<!--分割线 end-->
+
+<!--申请金融融资 begin-->
+<div class="flow">
+    <div>
+        <span>——</span>
+        <p>预定仓库服务</p>
+        <span>——</span>
+    </div>
+</div>
+<div class="message" id="app">
+    <div>
+        <label for="area">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区&nbsp;&nbsp;：</label>
+        <select id="city" style="width:65%;">
+        <option value="北京市">北京</option>
+        </select>
+    </div>
+    <div>
+        <label for="size">需求面积：</label>
+        <input type="number" id="size" placeholder="例如：100（必填）">㎡
+    </div>
+    <div>
+        <label>货品类型：</label>
+        <div class="quota" id="select2">
+            <span class="active">空调</span>
+            <span>电视</span>
+            <span>冰箱</span>
+            <span>洗衣机</span>
+            <span>净化器</span>
+            <span>加湿器</span>
+            <span>其他</span>
+        </div>
+    </div>
+    <div>
+        <label for="area">租赁时间：</label>
+        <input type="text" id="start" class="time" style="width:25%;" placeholder="请选择" readonly>至
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input type="text" id="end" class="time" style="width:25%;" placeholder="请选择" readonly>
+    </div>
+    <div>
+        <label style="width:30%">仓储租赁价格：</label>
+        <input type="number" placeholder="" id="money" value="0" style="width:20%;color:red;" readonly/><span style="color:red;">元</span><span style="font-size:.24rem;color: #999999;">（仅包含租赁费用）</span>
+    </div>
+    <div>
+        <label for="username">联 系 人 ：</label>
+        <input type="text" id="username" placeholder="请输入名称（必填）">
+    </div>
+    <div class="mb17">
+        <label for="pNumber">手 机 号 ：</label>
+        <input type="text" id="pNumber" placeholder="请输入手机号（必填）">
+    </div>
+</div>
+<div class="button">
+    <button class="btn btn-primary" type="submit" id="btnApplyStorage" onclick="applyStorage()">预定仓库</button>
+</div>
+<!--申请金融融资 end-->
+
+<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.edianlian.com/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="http://static.edianlian.com/components/datepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="http://static.edianlian.com/components/datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="http://static.edianlian.com/components/jquery/dist/moment.min.js"></script>
+<script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="js/adaptive.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+    /*时间插件*/
+    $(function () {
+        $('.time').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            forceParse: 0,
+            showMeridian: 1,
+            minView: "month",
+            pickerPosition: "bottom-right",
+            format: 'yyyy-mm-dd'
+        });
+    });
+    /*动态计算租赁金额*/
+    $("#size,#start,#end").change(function(){
+        var Proportion = $.trim($("#size").val());
+        var time1 = $('#start').val();
+        var time2 = $('#end').val();
+        var time = (moment(time2).format('X')-moment(time1).format('X'))/(24*60*60);
+        var totalPrice = Proportion * (time+1) * 1;
+        $('#money').val(totalPrice<0?0:totalPrice);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>应收账款融资</title>
+    <link href="http://static.edianlian.com/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <!--introduce begin-->
+    <div class="introduce">
+        <p>应收帐款融资是易电联推出的针对企业购销合同账期而造成资金流动性紧张的融资服务，企 业可将购销合同产生的债权转让给资金提供者，到期由融资企业回购债权或债务人将购销款直接支付于债权人的行为。</p>
+    </div>
+    <!--introduce end-->
+
+
+    <!--业务流程/放款流程 begin-->
+    <div class="flow">
+        <div>
+            <span>——</span>
+            <p>业务流程/放款流程</p>
+            <span>——</span>
+        </div>
+    </div>
+    <!--业务流程/放款流程 end-->
+
+    <!--流程图begin-->
+    <div class="flowImg">
+        <img src="img/flow/yingshouzhangkuan.png" alt="">
+    </div>
+    <!--流程图  end-->
+
+    <!--分割线 begin-->
+    <div class="split"></div>
+    <!--分割线 end-->
+
+    <!--申请服务流程 begin-->
+    <div class="flow">
+        <div>
+            <span>——</span>
+            <p>申请服务流程</p>
+            <span>——</span>
+        </div>
+    </div>
+    <div class="flowImages">
+        <img src="img/flow/shenqingrongzi.png" alt="">
+        <img src="img/flow/zizhishenhe-.png" alt="">
+        <img src="img/flow/qiandinghetong.png" alt="">
+        <img src="img/flow/zijinfankuan.png" alt="">
+    </div>
+    <div class="sFlow">
+        <div>
+            <p>申请融资</p>
+            <span>——</span>
+            <p>资质审核</p>
+            <span>——</span>
+            <p>签订合同</p>
+            <span>——</span>
+            <p>资金放款</p>
+        </div>
+    </div>
+    <!--申请服务流程 end-->
+
+    <!--分割线 begin-->
+    <div class="split"></div>
+    <!--分割线 end-->
+
+    <!--申请金融融资 begin-->
+    <div class="flow">
+        <div>
+            <span>——</span>
+            <p>申请金融融资</p>
+            <span>——</span>
+        </div>
+    </div>
+    <div class="message">
+        <div>
+            <label for="user">联系人：</label>
+            <input type="text" id="user" placeholder="请输入名称（必填）">
+        </div>
+        <div>
+            <label for="pNumber">电话号：</label>
+            <input type="text" id="pNumber" placeholder="请输入手机号（必填）">
+        </div>
+        <div>
+            <label style="width:35%;">融资额度（元）：</label>
+            <div class="quota" id="select1">
+                <span class="active">&lt;10万</span>
+                <span>10万~15万</span>
+                <span>15万~30万</span>
+                <span>&gt;30万</span>
+            </div>
+        </div>
+        <div>
+            <label for="deadline">使用期限：</label>
+            <input type="number" id="deadline" placeholder="例如30（必填整数）">天
+        </div>
+        <div>
+            <label for="remark" style="vertical-align: top;">备&nbsp;&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;：</label>
+            <textarea type="text" id="remark" placeholder="填写更多资料，能加快审核速度"></textarea>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-primary" type="submit" onclick="applyMoney()">提交申请</button>
+        <p style="text-align: center">提交申请后，我们将在24小时内与您联系</p>
+    </div>
+    <!--申请金融融资 end-->
+
+    <script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+    <script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="js/adaptive.js"></script>
+    <script src="js/base.js"></script>
+</body>
+</html>

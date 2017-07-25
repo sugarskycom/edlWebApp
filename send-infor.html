@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>我要发--信息输入</title>
+    <link rel="stylesheet" type="text/css" href="http://static.edianlian.com/components/toastr/toastr.min.css"/>
+    <link rel="stylesheet" href="css/send.css">
+    <style>
+        img {
+            width:36px;
+            height: 36px;
+
+        }
+        .message div > input,.message div span {
+            vertical-align: 30%;
+        }
+    </style>
+</head>
+<body>
+ <div class="content">目前只支持易电联租仓商户</div>
+ <div class="message">
+    <div class="place">
+        <div class="starting">
+            <img src="img/send/qi.png" alt="">
+            <input type="text" placeholder="易电联仓库" readonly>
+        </div>
+
+        <div class="ending">
+            <img src="img/send/zhong.png" alt="">
+            <!-- <select name="province" id="province" style="width: 2rem"></select><select name="city" id="city"></select><select name="area" id="area"></select><br> -->
+            <input type="text" placeholder="把货物送到哪里" id="where">
+        </div>
+    </div>
+    <div class="custom-storage">
+        <div>
+            <img src="img/send/huowu.png" alt="">
+            <input type="text" placeholder="请选择需要运输的货物" readonly>
+            <a href="myProduct.html"><img src="img/send/dakai.png" alt=""></a>
+        </div>
+        <div class="deliver">
+            <img src="img/ereach/xuanzhong.png" alt="" /><span>快递（默认发顺丰）</span>
+            <img src="img/ereach/weixuan.png" alt="" /><span>客户自提</span>
+        </div>
+    </div>
+</div>
+
+<div class="button">
+    <button type="button">在线下单</button>
+</div>
+
+<script src="http://static.edianlian.com/components/jquery/dist/jquery.min.js"></script>
+<script src="http://static.edianlian.com/components/toastr/toastr.min.js"></script>
+<script src="js/PCASClass.js"></script>
+<script type="text/javascript" src="js/adaptive.js"></script>
+<script>
+    /*验证插件初始化*/
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": false,
+        "preventDuplicates": false,
+        "positionClass": "toast-top-full-width",
+        "onclick": null,
+        "showDuration": "400",
+        "hideDuration": "1000",
+        "timeOut": "2000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    /*省市区联动插件初始化*/
+    new PCAS("province","city","area");
+
+    /*按钮点击信息验证*/
+    $(".button").click(function () {
+        var province = $.trim($("#province").val());
+        var city = $.trim($("#city").val());
+        var area = $.trim($("#area").val());
+        var where = $.trim($("#where").val());
+        var username = $.trim($("#user").val());
+        var pNumber = $.trim($("#pNumber").val());
+        /*正则检验手机号*/
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
+        var flag = reg.test(pNumber); //true
+        if (province == '') {
+            toastr.error('请选择省份！');
+            return false;
+        }
+        else if(city == ''){
+            toastr.error('请选择城市！')
+        }
+        else if(area == ''){
+            toastr.error('请选择区域！')
+        }
+        else if(where == ''){
+            toastr.error('请写入具体地址！')
+        }
+        else if (username == '') {
+            toastr.error('请输入联系人!');
+            return false;
+        }else if(username.length < 2){
+            toastr.error('姓名至少两个字！');
+            return false;
+        }
+        else if (pNumber == '') {
+            toastr.error('请输入手机号！');
+            return false;
+        } else if (!flag) {
+            toastr.error('请输入正确的手机号！');
+            return false;
+        } else {
+            /*AJAX提交数据*/
+            window.location.href="myProduct.html";
+            var data = {
+                Address: "province" + "city" + "area" + "where",
+                Name: username,
+                mobile: pNumber
+            };
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.1.143:9001/api/Apply/ApplyPurchase/",
+                dataType: "jsonp",
+                jsonp: 'callback',
+                data: JSON.stringify(data),
+                success: function () {
+                }
+            })
+        }
+    });
+</script>
+
+</body>
+</html>

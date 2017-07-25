@@ -1,0 +1,445 @@
+html,body{
+    font-family: "Microsoft YaHei";
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p,ul,ol,form{
+    margin:0;
+}
+
+/*introduce*/
+.introduce{
+    width: 7.5rem;
+    height: 3.2rem;
+    background: url("../img/flow/bg.png");
+    position: relative;
+
+}
+.introduce p{
+    position: absolute;
+    font-size: .28rem;
+    color: #ffffff;
+    top: .6rem;
+    text-align: center;
+    padding: 0 .5rem; 
+}
+
+/*流程*/
+.flow {
+    font-size: .32rem;
+    text-align: center;
+}
+.flow p{
+    display: inline-block;
+    margin: .5rem .22rem;
+}
+.flow span,.sFlow span{
+    color: #9cbcff;
+}
+
+/*流程图*/
+.flowImg{
+    width: 7.5rem;
+    margin-bottom: .4rem;
+}
+.flowImg img{
+    width: 100%;
+    height: 100%;
+}
+
+/*分割线*/
+.split{
+    width: 100%;
+    height: .2rem;
+    background-color: #f5f6f7;
+}
+
+.flowImages{
+    margin: -1.5rem .6rem 0;
+    text-align: center;
+}
+.flowImages img{
+    width: .8rem;
+    height: .8rem;
+    margin: 0 .165rem;
+}
+
+.sFlow{
+    font-size: .24rem;
+    text-align: center;
+    margin-bottom: .4rem;
+    margin-top: -0.5rem;
+}
+.sFlow p{
+    display: inline-block;
+    color: #333333;
+    margin: 0 .1rem;
+}
+/*表单提交*/
+.message{
+    padding-top: 0.1rem;
+    border-top:0.01rem solid #e5e5e5;
+}
+.message div{
+    /*width: 100%;*/
+    /*height: .78rem;*/
+    /*line-height: .78rem;*/
+    background-color: #f5f6f7;
+    border-radius: .06rem;
+    -moz-border-radius: .06rem;
+    -webkit-border-radius: .06rem;
+    margin-top: .1rem;
+    margin-bottom: .2rem;
+}
+
+.message div > label {
+    margin:.3rem 0 .2rem;
+    display: inline-block;
+    /* width:20%;*/
+}
+.mb17 {
+    margin-bottom: 1.7rem;
+}
+.message div > input,.message div > select {
+    width:62%;
+    /*height: .78rem;*/
+    border:0;
+    background-color: #f5f6f7;
+    color:#333;
+}
+::-moz-placeholder { color: #ccc; font-size: 0.3rem;}
+::-webkit-input-placeholder { color: #ccc; font-size: 0.3rem;}
+:-ms-input-placeholder { color: #ccc; font-size: 0.3rem; }
+
+.message div > textarea {
+    width:70%;
+    height:70%;
+    display: inline-block;
+    margin-top:.3rem;    
+    border:0;
+    background-color: #f5f6f7;
+    color:#333;
+}
+.message div > label,.message div{
+    font-size: .3rem;
+    font-weight:500;
+    color: #666666;
+    margin-left: .2rem;
+    margin-right: .2rem;
+}
+.quota {
+    box-sizing: border-box;
+    padding-bottom: .2rem;
+}
+.quota span{
+    font-size: .28rem;
+    color: #999999;
+    border: 1px solid #999999;
+    border-radius: .06rem;
+    -moz-border-radius: .06rem;
+    -webkit-border-radius: .06rem;
+    text-align: center;
+    display: inline-block;
+    width: 1.48rem;
+    height:.6rem;
+    margin: .05rem .05rem;
+    line-height: .6rem;
+}
+.quota span.active{
+    border:1px solid #4b92ff;
+    background: url("../img/flow/jiaobiao.png") no-repeat 100% 100%;
+    background-size: .38rem .38rem;
+    color: #4b92ff;
+}
+.button {
+    text-align: center;
+}
+.button button{
+    width: 90%;
+    height: .88rem;
+    background-color: #4b92ff;
+    font-size: .32rem;
+    border-radius: .1rem;
+    -moz-border-radius: .1rem;
+    -webkit-border-radius: .1rem;
+    border:0;
+}
+.button p{
+    text-align: center;
+    font-size: .24rem;
+    color: #999999;
+    margin-top: -0.5rem;
+    margin-bottom: .2rem;
+}
+
+/*更改插件toastr字体大小*/
+.toast-message{
+    font-size: .4rem;
+}
+
+.datetimepicker-dropdown-bottom-right:after,.datetimepicker-dropdown-bottom-right:before {
+    opacity:0;
+}
+#toast-container.toast-bottom-full-width > div, #toast-container.toast-top-full-width > div{
+    width: 80%;
+}
+
+
+/*Ereach*/
+.e-check {
+    font-size:0.28rem;
+    font-weight: 500;
+    background-color: #fff;
+    color:#666;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    border-top:0.01rem solid #dbdbdb;
+    text-align: center;
+}
+.e-check a{
+    text-decoration: none;
+    color:#666;
+}
+.e-check div {
+    display: inline-block;
+}
+.e-check > .by-waybill {
+    margin-right:0.5rem;
+}
+.e-check > .by-order {
+    margin-left:0.5rem;
+}
+.e-check-pipe {
+    width: 100%;
+    height: 0.03rem;
+    background-color: #dbdbdb;
+    position: relative;
+}
+
+.scroll {
+    /*display: inline-block;*/
+    /*text-align: */
+    position: absolute;
+    width: 45%;
+    margin-left:0.3rem;
+    height: 0.05rem;
+    background-color: #4b92ff;
+}
+
+.e-note {
+    font-size:0.22rem;
+    color:#999;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: center;
+    margin:0;
+}
+.e-check-order {
+    width: 6.7rem;
+    height: auto;
+    margin:0 auto;
+    background-color: #fff;
+    border-radius: 0.06rem;
+    -moz-border-radius: 0.06rem;
+    -webkit-border-radius: 0.06rem;
+    vertical-align: top;
+    padding-left:0.2rem;
+    padding-right:0.2rem;
+    margin-bottom:0.2rem;
+}
+.order-title {
+    height: 0.88rem;
+    border-bottom: 0.01rem dashed #ececec;
+    /*vertical-align: top;*/
+}
+.order-title span {
+    height: 0.88rem;
+    line-height: 0.88rem;
+    display: inline-block;
+    font-size:0.28rem;
+    display: inline-block;
+    vertical-align: top;
+    color:#666;
+}
+.order-title span > b {
+    font-weight: normal;
+    color:#333;
+}
+.order-title span:last-child {
+    float:right;
+    color:#4b92ff;
+}
+.order-list {
+    font-size:0.28rem;
+    color: #666;
+}
+.order-list > .order-item {
+    height: 0.88rem;
+    line-height: 0.88rem;
+    border-bottom:0.01rem solid #dbdbdb;   
+}
+.order-list > .order-item span {
+  display: inline-block;
+  height: 0.88rem;   
+}
+.order-list > .order-item > .item-num {
+    float:right;
+}
+.order-list > .check-all {
+    /*vertical-align: top;*/
+    text-align: center;
+    padding-top: 0.3rem;
+    padding-bottom:0.3rem;
+    border-bottom:0.01rem solid #dbdbdb;   
+    background:url("../img/ereach/dakai.png") no-repeat 66%;
+}
+
+.order-footer {
+    height: 0.88rem;
+    /*vertical-align: top;*/
+}
+.order-footer > .list-num {
+    display: inline-block;
+    font-size:0.28rem;
+    display: inline-block;
+    vertical-align: top;
+    color:#333;
+    padding-top:0.3rem;
+}
+input[type="button"] {
+    -webkit-appearance: none;
+}
+.order-footer button {
+    float: right;
+    height: 0.6rem;
+    width: 1.5rem;
+    font-size:0.28rem;
+    background-color: #4b92ff;
+    margin-top:0.2rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    color: #fff;
+    border:none;
+    border-color: #4b92ff;
+    border-radius: 0.06rem;
+    -moz-border-radius: 0.06rem;
+    -webkit-border-radius: 0.06rem;
+}
+
+
+.check-group {
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+.code {
+    width: 90%;
+    display: inline-block;
+    vertical-align: top;
+    height: 0.88rem;
+    border-radius: 0.5rem; 
+    -moz-border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    border:0.01rem solid #afcfff;  
+    margin-top: 0.3rem;
+    margin-bottom:0;
+    font-size: .3rem;
+}
+
+.waybill-btn {
+    background:url("../img/ereach/chakan_n.png") no-repeat 40%;
+    background-size: .36rem .36rem;
+    position: absolute;
+    top:55%;
+    left:5%;
+    width:90%;
+    height: 0.88rem;
+    border:0;
+    border-radius: 0.06rem; 
+    -moz-border-radius: 0.06rem;
+    -webkit-border-radius:0.06rem;;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #4b92ff;
+  border-color: 0;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #4b92ff;
+  border-color: 0;
+}
+
+.waybill-btn > img {
+    width:0.28rem;
+    height: 0.28rem;   
+}
+.waybill-btn > span {
+    font-size: 0.32rem;
+    color:#fff;
+    position: absolute;
+    left: 45%;
+    top: 26%;
+}
+.waybill-num {
+    vertical-align: top;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    font-size: 0.32rem;
+    color:#666;
+    background-color: #fff;
+    border-top:0.01rem solid #e5e5e5;
+    border-bottom:0.01rem solid #e5e5e5;
+    /* margin-top: 0.3rem;*/
+    padding-left:0.4rem;
+}
+.waybill-num span {
+    color:#333;
+}
+.waybill-detail {
+    background-color: #fff;
+    font-size: 0.28rem;
+    padding-left:0.9rem;
+    margin-top:0.2rem;
+    margin-bottom: 0.4rem;
+}
+.waybill-detail .waybill-process {
+    border-bottom: 0.01rem solid #e5e5e5;
+    padding-top:0.3rem;
+    padding-bottom: 0.3rem;
+    width:85%;
+    color:#999;
+}
+.waybill-detail .waybill-process:first-child {
+    color:#fe9e16;
+}
+.waybill-detail > .waybill-process > p > .active {
+    background:url("../img/ereach/point.png") no-repeat;
+    background-size: 100% 100%;
+}
+.waybill-detail .waybill-process p {
+    position: relative;
+    font-size: 0.28rem;
+    padding-bottom: 0.1rem;
+}
+.waybill-detail .waybill-process > .process-time {
+    font-size: 0.24rem;
+}
+.circle {
+    position: absolute;
+    top:20%;
+    left:-9%;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: #e5e5e5;
+    -moz-border-radius: 0.1rem;
+    -webkit-border-radius: 0.1rem;
+    border-radius: 0.1rem;
+}
